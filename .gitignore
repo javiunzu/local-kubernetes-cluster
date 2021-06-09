@@ -6,3 +6,6 @@ crash.log
 
 # For built boxes
 *.box
+
+.cluster_token
+admin.conf
