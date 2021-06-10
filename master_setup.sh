@@ -1,7 +1,11 @@
+#!/usr/bin/env bash
 set -eu
 
 hostnamectl set-hostname host0
-kubeadm init --token ${CLUSTER_TOKEN} --apiserver-advertise-address ${IP_ADDRESS} --apiserver-bind-port 8001
+kubeadm init \
+ --token ${CLUSTER_TOKEN} \
+ --apiserver-advertise-address ${IP_ADDRESS} \
+ --apiserver-bind-port 8001 --pod-network-cidr=10.244.0.0/16
 
 export KUBECONFIG="/etc/kubernetes/admin.conf" # Otherwise kubectl won't work.
 
